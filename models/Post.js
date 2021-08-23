@@ -13,7 +13,7 @@ Post.init(
         },
         title: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         content: {
             type: DataTypes.STRING
@@ -30,6 +30,13 @@ Post.init(
               key: 'id',
             },
           },
+          comment_id: {
+              type: DataTypes.INTEGER,
+              references: {
+                  model: 'post',
+                  key: 'id'
+              }
+          }
     },
     {
         sequelize,
