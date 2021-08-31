@@ -37,3 +37,38 @@ li {
     color: rgb(216, 216, 76);
     font-size: larger;
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.post {
+    width: 700px ;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: solid;
+    border-width: 2px;
+    border-color:rgb(11, 11, 104)
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+.postTitle {
+    padding-top: 8px ;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    background-color:rgb(11, 11, 104);
+    color: rgb(216, 216, 76);
+    width: 700px;
+}
+
+.postContent {
+    color:rgb(11, 11, 104);
+    margin: 8px;
+}

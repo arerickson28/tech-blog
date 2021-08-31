@@ -1,5 +1,16 @@
 {{#each posts as |post| }}
-    <h4>{{post.title}}</h4>
-    <h5>{{post.content}}</h5>
-    <h6>By {{post.user.user_name}}</h6>
+
+    {{#if post.comment_id}}
+    {{else}}
+        <div class="post">
+            <div class="postTitle">
+                <h4>{{post.title}}</h4>
+            </div>
+            <div class="postContent">
+                <h5>{{post.content}}</h5>
+                <h6>   --- {{post.user.user_name}}</h6>
+            </div>
+        </div>
+    {{/if}}
+
 {{/each}}
