@@ -72,3 +72,45 @@ main {
     color:rgb(11, 11, 104);
     margin: 8px;
 }
+
+a {
+    color:rgb(216, 216, 76)
+}
+
+#loginSignup {
+    background-color:rgb(11, 11, 104);
+    border-radius: 10px;
+    height: 400px;
+    width: 750px ;
+    color:rgb(11, 11, 104) ;
+    display: flex ;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.loginSignup {
+    width: 250px;
+    background-color:rgb(216, 216, 76);
+    height: 275px;
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center ;
+}
+
+.vertical-line1 {
+    width: 1px;
+    background-color:rgb(216, 216, 76);
+    height: 275px;
+}
+
+input {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+form {
+    padding: 10px ;
+    margin-top: 20px ;
+}
