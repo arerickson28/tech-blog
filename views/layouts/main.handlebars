@@ -12,12 +12,12 @@
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            {{#if logged_in}}
-                <li>Dashboard</li>
+            {{!-- {{#if logged_in}} --}}
+                <li><a href="/dashboard">Dashboard</a></li>
                 <li>Logout</li>
-            {{else}}
+            {{!-- {{else}} --}}
                 <li><a href="/login">Login</a></li>
-            {{/if}}
+            {{!-- {{/if}} --}}
         </ul>
         <h1 id="techBlog">The Tech Blog</h1>
     </nav>    

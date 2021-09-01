@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post} = require('../../models');
 
 
 router.get('/', async (req, res) => {
@@ -11,6 +11,22 @@ router.get('/', async (req, res) => {
     }
 })
 
+
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include: [
+        {
+          model: Post
+        }
+      ]
+    })
+    res.status(200).json(userData)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+  
+})
 
 router.post('/', async (req, res) => {
   try {
@@ -43,7 +59,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 
@@ -69,5 +85,7 @@ router.post('/logout', (req, res) => {
   }
   res.json({message: "You are now logged out"})
 });
+
+
 
 module.exports = router;

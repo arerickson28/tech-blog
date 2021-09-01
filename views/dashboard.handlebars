@@ -1,0 +1,14 @@
+<h2>{{user.userName}}</h2>
+
+{{#each user.posts as |post|}}
+
+    <div class="post">
+        <div class="postTitle">
+            <h4>{{post.title}}</h4>
+        </div>
+        <div class="postContent">
+            <h5>{{post.content}}</h5>
+            <h6>   --- {{post.user.user_name}}</h6>
+        </div>
+    </div>
+{{/each}}
