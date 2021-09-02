@@ -8,7 +8,13 @@
         </div>
         <div class="postContent">
             <h5>{{post.content}}</h5>
-            <h6>   --- {{post.user.user_name}}</h6>
         </div>
     </div>
 {{/each}}
+
+<textarea id="newBlogPost" class="hide">New blog post....</textarea>
+<button id="newPostSaveBtn" class="hide">Save</button>
+
+<button id="newBlogPostBtn">New Blog Post</button>
+
+<script src="/js/dashboard.js"></script>

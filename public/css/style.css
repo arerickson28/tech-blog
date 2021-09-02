@@ -114,3 +114,11 @@ form {
     padding: 10px ;
     margin-top: 20px ;
 }
+
+textarea {
+    width: 700px;
+}
+
+.hide {
+    display: none;
+}

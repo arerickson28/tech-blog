@@ -14,10 +14,10 @@ router.get('/', async (req, res) => {
     });
     //   res.status(200).json(postData)
     const posts = postData.map((post) => post.get({ plain: true }));
-    console.log(posts)
+    // console.log(posts)
     res.render("homepage", {
         posts, 
-        logged_in: req.session.logged_in 
+        // logged_in: req.session.logged_in 
     })
     } catch(err) {
       res.status(500).json(err)
