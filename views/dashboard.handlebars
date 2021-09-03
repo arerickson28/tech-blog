@@ -10,10 +10,21 @@
             <h5>{{post.content}}</h5>
         </div>
     </div>
+    <div>
+    <button>Edit</button>
+    <button>Delete</button>
+    </div>
 {{/each}}
+<input id="newPostTitle" placeholder="Blog post title..." class="hide">
+<textarea id="newBlogPost" class="hide" placeholder="New blog post..."></textarea>
+<div>
+    <button id="newPostSaveBtn" class="hide">Save</button>
+    <button id="cancelNewPost" class="hide">Cancel</button>
+</div>
 
-<textarea id="newBlogPost" class="hide">New blog post....</textarea>
-<button id="newPostSaveBtn" class="hide">Save</button>
+
+
+<hr>
 
 <button id="newBlogPostBtn">New Blog Post</button>
 
