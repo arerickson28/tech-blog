@@ -3,12 +3,14 @@ const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
+  console.log(req.session);
+  console.log(req.session.loggedIn)
     try { 
       const postData = await Post.findAll({
           include: [
             {
                 model: User,
-                attributes: ["user_name"]
+                attributes: ["userName"]
             },
         ],
     });
@@ -17,9 +19,10 @@ router.get('/', async (req, res) => {
     // console.log(posts)
     res.render("homepage", {
         posts, 
-        // logged_in: req.session.logged_in 
+        loggedIn: req.session.loggedIn 
     })
     } catch(err) {
+      console.log(err);
       res.status(500).json(err)
     }
   });
@@ -28,7 +31,7 @@ router.get('/', async (req, res) => {
 //     try {
 //         res.render("homepage", {
 //             posts, 
-//             logged_in: req.session.logged_in 
+//             loggedIn: req.session.loggedIn 
 //         })
 //     } catch (err) {
 //         res.status(500).json(err)
@@ -37,18 +40,19 @@ router.get('/', async (req, res) => {
 
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
-    if (req.session.logged_in) {
+
+    if (req.session.loggedIn) {
       res.redirect('/');
       return;
     }
   
     res.render('login', {
-      logged_in: req.session.logged_in
+      loggedIn: req.session.loggedIn
     });
   });
 
   // router.post('/logout', (req, res) => {
-  //   if (req.session.logged_in) {
+  //   if (req.session.loggedIn) {
   //     req.session.destroy(() => {
   //       res.status(204).end();
   //     });
@@ -67,7 +71,7 @@ router.get('/login', (req, res) => {
       const user = userData.get({ plain: true });
       res.render('dashboard', {
         user,
-        logged_in: req.session.logged_in 
+        loggedIn: req.session.loggedIn 
       });
       console.log(user);
     } catch (err) {
