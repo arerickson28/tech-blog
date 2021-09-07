@@ -13,10 +13,13 @@ loginBtn.addEventListener("click", async () => {
     if (userNameLogin && passLogin) {
         const response = await fetch('/api/users/login', {
             method: 'POST',
-            body: JSON.stringify({ userNameLogin, passLogin }),
+            body: JSON.stringify({ 
+                userName: userNameLogin, 
+                password: passLogin 
+            }),
             headers: { 'Content-Type': 'application/json' },
         });
-
+        console.log(userNameLogin, passLogin)
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
@@ -37,12 +40,28 @@ loginBtn.addEventListener("click", async () => {
 
 
 
-signupBtn.addEventListener("click", () => {
-    let userNameSignup = document.getElementById("user-name-signup");
-    let passSignup = document.getElementById("password-signup");    
-    console.log(userNameSignup.value)
-    console.log(passSignup.value)
+signupBtn.addEventListener("click", async () => {
+    event.preventDefault()
+    let userNameSignup = document.getElementById("user-name-signup").value.trim();
+    let passSignup = document.getElementById("password-signup").value.trim();    
+    console.log(userNameSignup)
+    console.log(passSignup)
 
-    userNameSignup.value = ""
-    passSignup.value = ""
+    if (userNameSignup && passSignup) {
+        const response = await fetch('/api/users/', {
+            method: 'POST',
+            body: JSON.stringify({ userNameSignup, passSignup }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert(response.statusText);
+        }
+    }
+
+    // userNameSignup.value = ""
+    // passSignup.value = ""
 })
+
