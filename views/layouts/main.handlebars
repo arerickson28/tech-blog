@@ -12,12 +12,12 @@
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            {{!-- {{#if loggedIn}} --}}
+            {{#if loggedIn}}
                 <li><a href="/dashboard">Dashboard</a></li>
-                <li>Logout</li>
-            {{!-- {{else}} --}}
+                <li id="logout">Logout</li>
+            {{else}}
                 <li><a href="/login">Login</a></li>
-            {{!-- {{/if}} --}}
+            {{/if}}
         </ul>
         <h1 id="techBlog">The Tech Blog</h1>
     </nav>    
@@ -27,9 +27,9 @@
     </main>
 
 
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
 
-
-
-<script src="/js/script.js"></script>
 </body>
 </html>
