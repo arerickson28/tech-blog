@@ -67,12 +67,13 @@ newPostCancelBtn.addEventListener("click", () => {
 for (let i=0; i < editBtns.length; i++) {
   editBtns[i].addEventListener("click", () => {
     event.preventDefault()
-    let post = event.target.parentNode.previousElementSibling
+    let editDeleteDiv = event.target.parentNode
+    let post = editDeleteDiv.previousElementSibling
     let postTitle = post.childNodes[1].childNodes[1].innerHTML
     let postContent = post.childNodes[3].childNodes[1].innerHTML
-    console.log(postContent)
+    // console.log(postContent)
     let postId = event.target.parentNode.previousElementSibling.getAttribute("value")
-    console.log(postId)
+    // console.log(postId)
     post.classList.add("hide")
 
     let editPost = document.createElement("div")
@@ -92,23 +93,29 @@ for (let i=0; i < editBtns.length; i++) {
     editSaveBtn.setAttribute("id", "editPostSaveBtn")
     editSaveBtn.textContent = "Save"
 
-    let cancelSaveBtn = document.createElement("button")
-    cancelSaveBtn.setAttribute("id", "cancelEditPost")
-    cancelSaveBtn.textContent = "Cancel"
+    let cancelEditBtn = document.createElement("button")
+    cancelEditBtn.setAttribute("id", "cancelEditPost")
+    cancelEditBtn.textContent = "Cancel"
 
    editBtnsDiv.appendChild(editSaveBtn)
-   editBtnsDiv.appendChild(cancelSaveBtn)
+   editBtnsDiv.appendChild(cancelEditBtn)
 
    editPost.appendChild(editInput)
    editPost.appendChild(editTextarea)
    editPost.appendChild(editBtnsDiv)
-   console.log(post)
-   console.log(editPost)
+  //  console.log(post)
+  //  console.log(editPost)
 
    post.parentNode.insertBefore(editPost, post.nextSibling)
-   event.target.parentNode.setAttribute("class", "hide")
+   editDeleteDiv.setAttribute("class", "hide")
 
   //  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+
+  cancelEditBtn.addEventListener("click", () => {
+    post.parentNode.removeChild(editPost)
+    post.classList.remove("hide");
+    editDeleteDiv.removeAttribute("class", "hide")
+  })
   
   })
 }

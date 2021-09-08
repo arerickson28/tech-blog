@@ -1,5 +1,4 @@
 let logoutBtn = document.getElementById("logout");
-console.log(logoutBtn)
 
 logoutBtn.addEventListener("click", async () => {
     console.log("you logged out bro")
