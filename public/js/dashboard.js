@@ -6,22 +6,17 @@ let newPostCancelBtn = document.getElementById("cancelNewPost")
 let editBtns = document.getElementsByClassName("editBtn");
 let deleteBtn = document.getElementsByClassName("deleteBtn")
 
-
-
 newPostBtn.addEventListener("click", () => {
     newPostBtn.setAttribute("class", "hide");
     newPostTitle.removeAttribute("class")
     newBlogPost.removeAttribute("class")
     newPostSaveBtn.removeAttribute("class")
     newPostCancelBtn.removeAttribute("class")
-   
 })
 
 newPostSaveBtn.addEventListener("click", async () => {
     let title = newPostTitle.value.trim()
     let content = newBlogPost.value.trim()
-
-    console.log(title, content)
 
     if (title && content) {
         console.log(title, content)
@@ -48,9 +43,6 @@ newPostSaveBtn.addEventListener("click", async () => {
     newPostSaveBtn.setAttribute("class", "hide")
     newPostCancelBtn.setAttribute("class", "hide")
     newPostBtn.removeAttribute("class");
-
-
-    
 })
 
 newPostCancelBtn.addEventListener("click", () => {
@@ -71,9 +63,9 @@ for (let i=0; i < editBtns.length; i++) {
     let post = editDeleteDiv.previousElementSibling
     let postTitle = post.childNodes[1].childNodes[1].innerHTML
     let postContent = post.childNodes[3].childNodes[1].innerHTML
-    // console.log(postContent)
+
     let postId = event.target.parentNode.previousElementSibling.getAttribute("value")
-    // console.log(postId)
+
     post.classList.add("hide")
 
     let editPost = document.createElement("div")
@@ -97,25 +89,48 @@ for (let i=0; i < editBtns.length; i++) {
     cancelEditBtn.setAttribute("id", "cancelEditPost")
     cancelEditBtn.textContent = "Cancel"
 
-   editBtnsDiv.appendChild(editSaveBtn)
-   editBtnsDiv.appendChild(cancelEditBtn)
+    editBtnsDiv.appendChild(editSaveBtn)
+    editBtnsDiv.appendChild(cancelEditBtn)
 
-   editPost.appendChild(editInput)
-   editPost.appendChild(editTextarea)
-   editPost.appendChild(editBtnsDiv)
-  //  console.log(post)
-  //  console.log(editPost)
+    editPost.appendChild(editInput)
+    editPost.appendChild(editTextarea)
+    editPost.appendChild(editBtnsDiv)
 
-   post.parentNode.insertBefore(editPost, post.nextSibling)
-   editDeleteDiv.setAttribute("class", "hide")
+    post.parentNode.insertBefore(editPost, post.nextSibling)
+    editDeleteDiv.setAttribute("class", "hide")
 
-  //  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    //  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 
-  cancelEditBtn.addEventListener("click", () => {
-    post.parentNode.removeChild(editPost)
-    post.classList.remove("hide");
-    editDeleteDiv.removeAttribute("class", "hide")
-  })
+    cancelEditBtn.addEventListener("click", () => {
+      post.parentNode.removeChild(editPost)
+      post.classList.remove("hide");
+      editDeleteDiv.removeAttribute("class", "hide")
+    })
+
+    editSaveBtn.addEventListener("click", async () => {
+      console.log("this is gonna be rad")
+      let newTitle = document.getElementById("editPostTitle").value
+      let newContent = document.getElementById("editBlogPost").value
+
+      const response = await fetch(`/api/posts/${postId}`, {
+        method: 'PUT',
+        body: JSON.stringify({ 
+          // id: postId,
+          title: newTitle,
+          content: newContent
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to update blog post');
+      }
+
+    })
   
   })
 }
