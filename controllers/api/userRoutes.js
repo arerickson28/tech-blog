@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
 
       res.status(200).json(userData);
     });
-    console.log(userData);
+    // console.log(userData);
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
@@ -52,7 +52,7 @@ router.post('/', async (req, res) => {
 //login
 router.post('/login', async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const userData = await User.findOne({ where: { userName: req.body.userName } });
     
 
@@ -79,8 +79,8 @@ router.post('/login', async (req, res) => {
       
       res.json({ user: userData, message: 'You are now logged in!' });
     });
-    console.log(userData.dataValues);
-    console.log(req.session);
+    // console.log(userData.dataValues);
+    // console.log(req.session);
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
