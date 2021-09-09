@@ -4,7 +4,7 @@ let newPostTitle = document.getElementById("newPostTitle")
 let newPostSaveBtn = document.getElementById("newPostSaveBtn")
 let newPostCancelBtn = document.getElementById("cancelNewPost")
 let editBtns = document.getElementsByClassName("editBtn");
-let deleteBtn = document.getElementsByClassName("deleteBtn")
+let deleteBtns = document.getElementsByClassName("deleteBtn")
 
 newPostBtn.addEventListener("click", () => {
     newPostBtn.setAttribute("class", "hide");
@@ -132,6 +132,25 @@ for (let i=0; i < editBtns.length; i++) {
 
     })
   
+  })
+}
+
+for (let i=0; i< deleteBtns.length; i++) {
+  deleteBtns[i].addEventListener("click", async () => {
+    event.preventDefault()
+    let editDeleteDiv = event.target.parentNode
+    let postId = editDeleteDiv.previousElementSibling.getAttribute("value");
+    console.log(postId)
+    let response = await fetch(`/api/posts/${postId}`, {
+      method: 'DELETE',
+    })
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to delete post');
+    }
+
   })
 }
 
