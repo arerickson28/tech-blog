@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-    console.log(req.session.cookie.logged_in)
+    console.log(req.session.logged_in)
     console.log(req.session)
-    res.render("homepage", {
-        posts, 
-        loggedIn: req.session.loggedIn 
+    res.render("homepage", { 
+        logged_in: req.session.logged_in,
+        posts
     })
     } catch(err) {
       console.log(err);
@@ -29,13 +29,13 @@ router.get('/', async (req, res) => {
 
 router.get('/login', (req, res) => {
 
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
       res.redirect('/');
       return;
     }
   
     res.render('login', {
-      loggedIn: req.session.loggedIn
+      logged_in: req.session.logged_in
     });
   });
 
@@ -50,7 +50,7 @@ router.get('/login', (req, res) => {
       const user = userData.get({ plain: true });
       res.render('dashboard', {
         user,
-        loggedIn: req.session.loggedIn 
+        logged_in: req.session.logged_in 
       });
 
     } catch (err) {
