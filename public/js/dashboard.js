@@ -5,6 +5,7 @@ let newPostSaveBtn = document.getElementById("newPostSaveBtn")
 let newPostCancelBtn = document.getElementById("cancelNewPost")
 let editBtns = document.getElementsByClassName("editBtn");
 let deleteBtns = document.getElementsByClassName("deleteBtn")
+let commentBtns = document.getElementsByClassName("commentBtn")
 
 newPostBtn.addEventListener("click", () => {
     newPostBtn.setAttribute("class", "hide");
@@ -154,3 +155,8 @@ for (let i=0; i< deleteBtns.length; i++) {
   })
 }
 
+for (let i=0; i < commentBtns.length; i++) {
+  commentBtns[i].addEventListener("click", async () => {
+
+  })
+}

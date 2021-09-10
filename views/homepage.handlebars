@@ -1,10 +1,7 @@
-{{#if logged_in}}
-    <h1>HEY WHAT IS UP</h1>
-{{/if}}
-
 {{#each posts}}
 
-        <div class="post">
+       
+        <div value="{{this.id}}"class="post">
             <div class="postTitle">
                 <h4>{{this.title}}</h4>
             </div>
@@ -14,10 +11,12 @@
                 <h6>Posted On: <br> {{format_date this.date_created}}</h6>
             </div>
             {{#if ../logged_in}}
-                <button id="commentBtn">Add a comment</button>
+                <button class="commentBtn">Add a comment</button>
             {{else}}
                 <h2>NO BUTTON</h2>
             {{/if}}
         </div>
 
 {{/each}}
+
+<script src="/js/script.js"></script>
