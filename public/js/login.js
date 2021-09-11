@@ -34,12 +34,6 @@ loginBtn.addEventListener("click", async () => {
 
 
 
-
-
-
-
-
-
 signupBtn.addEventListener("click", async () => {
     event.preventDefault()
     let userNameSignup = document.getElementById("user-name-signup").value.trim();
@@ -50,7 +44,10 @@ signupBtn.addEventListener("click", async () => {
     if (userNameSignup && passSignup) {
         const response = await fetch('/api/users/', {
             method: 'POST',
-            body: JSON.stringify({ userNameSignup, passSignup }),
+            body: JSON.stringify({
+                userName: userNameSignup,
+                password: passSignup
+            }),
             headers: { 'Content-Type': 'application/json' },
         });
 

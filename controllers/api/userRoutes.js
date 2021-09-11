@@ -2,32 +2,6 @@ const router = require('express').Router();
 const { User, Post } = require('../../models');
 
 
-// router.get('/', async (req, res) => {
-//     try {
-//         const userData = await User.findAll();
-//         res.status(200).json(userData);
-//     } catch(err) {
-//         res.status(500).json(err);
-//     }
-// })
-
-
-// router.get('/:id', async (req, res) => {
-//   try {
-//     const userData = await User.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: Post
-//         }
-//       ]
-//     })
-//     res.status(200).json(userData)
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-  
-// })
-
 
 //Sign up
 router.post('/', async (req, res) => {
@@ -35,13 +9,12 @@ router.post('/', async (req, res) => {
     const userData = await User.create(req.body);
 
     req.session.save(() => {
-      req.session.userName = userData.dataValues.userName;
       req.session.userId = userData.dataValues.id;
+      req.session.userName = userData.dataValues.userName;
       req.session.logged_in = true;
 
       res.status(200).json(userData);
     });
-    // console.log(userData);
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
@@ -52,7 +25,6 @@ router.post('/', async (req, res) => {
 //login
 router.post('/login', async (req, res) => {
   try {
-    // console.log(req.body);
     const userData = await User.findOne({ where: { userName: req.body.userName } });
     
 

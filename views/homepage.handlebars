@@ -1,6 +1,5 @@
 {{#each posts}}
 
-       
         <div value="{{this.id}}"class="post">
             <div class="postTitle">
                 <h4>{{this.title}}</h4>
@@ -12,8 +11,6 @@
             </div>
             {{#if ../logged_in}}
                 <button class="commentBtn">Add a comment</button>
-            {{else}}
-                <h2>NO BUTTON</h2>
             {{/if}}
         </div>
 
