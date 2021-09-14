@@ -24,7 +24,7 @@ router.post('/', withAuth, async (req, res) => {
       const newPost = await Post.create({
         title: req.body.title,
         content: req.body.content,
-        // ...req.body,
+        comment_id: req.body.comment_id,
         user_id: req.session.userId,
       });
   

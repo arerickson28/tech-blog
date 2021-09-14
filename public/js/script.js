@@ -41,11 +41,9 @@ saveCommentBtn.addEventListener("click", async () => {
     let postId = event.target.parentNode.parentNode.parentNode.getAttribute("value")
 
     if (commentContent) {
-        // console.log(title, content)
         const response = await fetch(`/api/posts/`, {
           method: 'POST',
           body: JSON.stringify({
-            //   title: title,
               content: commentContent,
               comment_id: postId
             }),
