@@ -41,11 +41,11 @@ saveCommentBtn.addEventListener("click", async () => {
     let postId = event.target.parentNode.parentNode.parentNode.getAttribute("value")
 
     if (commentContent) {
-        const response = await fetch(`/api/posts/`, {
+        const response = await fetch(`/api/comments/`, {
           method: 'POST',
           body: JSON.stringify({
               content: commentContent,
-              comment_id: postId
+              post_id: postId
             }),
           headers: {
             'Content-Type': 'application/json',
@@ -53,9 +53,9 @@ saveCommentBtn.addEventListener("click", async () => {
         });
     
         if (response.ok) {
-          document.location.replace('/homepage');
+          document.location.replace('/');
         } else {
-          alert('Failed to create blog post');
+          alert('Failed to create comment post');
         }
       }
 

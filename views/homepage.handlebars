@@ -1,5 +1,5 @@
 {{#each posts as |post|}}
-    {{#unless post.comment_id}}
+    {{!-- {{#unless post.comment_id}} --}}
         <div value="{{post.id}}"class="post">
             <div class="postTitle">
                 <h4>{{post.title}}</h4>
@@ -33,7 +33,7 @@
 
 
 
-    {{/unless}}
+    {{!-- {{/unless}} --}}
 {{/each}}
 
 <script src="/js/script.js"></script>
