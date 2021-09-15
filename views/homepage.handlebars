@@ -14,10 +14,11 @@
             {{/if}}
         </div>
 
-        {{!-- {{#each posts as |comment|}}
-            <h1>{{../post.id}}</h1>
-            <h1>{{comment.comment_id}}</h1>
-            {{#if has_comment ../post.id comment.comment_id}}
+        {{!-- <div>
+            <p>{{post.id.comment.content}}</p>
+        </div> --}}
+          {{#each comments as |comment|}}
+            {{!-- {{#if has_comment ../post.id comment.comment_id}} --}}
 
               <div value="{{comment.id}}"class="post">
                 <div class="postContent">
@@ -27,13 +28,16 @@
                 </div>
             </div>
 
-            {{/if}}
+            {{!-- {{/if}} --}}
           
-        {{/each}} --}}
+        {{/each}}
+      
 
 
 
     {{!-- {{/unless}} --}}
 {{/each}}
+
+
 
 <script src="/js/script.js"></script>
