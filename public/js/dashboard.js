@@ -154,9 +154,3 @@ for (let i=0; i< deleteBtns.length; i++) {
 
   })
 }
-
-for (let i=0; i < commentBtns.length; i++) {
-  commentBtns[i].addEventListener("click", async () => {
-
-  })
-}
