@@ -1,5 +1,5 @@
 {{#each posts as |post|}}
-    {{!-- {{#unless post.comment_id}} --}}
+
         <div value="{{post.id}}"class="post">
             <div class="postTitle">
                 <h4>{{post.title}}</h4>
@@ -16,7 +16,6 @@
             <button class="hideComment hide">Hide Comments</button> --}}
         </div>
 
-       
           {{#each comments as |comment|}}
           
 
@@ -25,18 +24,14 @@
                     <h5>{{comment.content}}</h5>
                     <h6>   --- {{comment.user.userName}}</h6>
                     <h6>Posted On: <br> {{format_date comment.date_created}}</h6>
+                    {{#if user.id === comment.user.id}}
+
+                    {{/if}}
                 </div>
             </div>
-           
-
         
-          
         {{/each}}
       
-
-
-
-    {{!-- {{/unless}} --}}
 {{/each}}
 
 
