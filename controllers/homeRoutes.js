@@ -35,9 +35,6 @@ router.get('/', async (req, res) => {
     })
     const comments = commentData.map((comment) => comment.get({ plain: true }))
 
-    console.log(comments)
-    console.log(session)
-
     res.render("homepage", { 
         logged_in: req.session.logged_in,
         posts,
