@@ -1,6 +1,15 @@
 # tech-blog
 ## Welcome to the tech-blog
-Please see `instructions` folder for assignment details
+
+Use the tech-blog to ask tech-related questions or write about your latest projects. View community posts and add comments!
+
+<hr>
+
+*Picture of tech-blog website*
+![Picture of Website](instructions/Assets/tech-blog-pic.png)
+
+
+
 
 *link to project repository* <br>
 https://github.com/arerickson28/tech-blog
@@ -9,3 +18,7 @@ https://github.com/arerickson28/tech-blog
 
 *link to deployed app* <br>
 https://gr8-blog.herokuapp.com/
+
+<hr>
+
+Please see `instructions` folder for assignment details
