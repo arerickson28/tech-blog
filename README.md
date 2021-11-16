@@ -5,6 +5,11 @@ Use the tech-blog to ask tech-related questions or write about your latest proje
 
 <hr>
 
+## Technologies Used
+The tech blog is a full-stack application utilizing, node, express, sequelize, and handlebars
+
+<hr>
+
 *Picture of tech-blog website*
 ![Picture of Website](instructions/Assets/tech-blog-pic.png)
 
