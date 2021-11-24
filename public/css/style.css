@@ -1,9 +1,15 @@
+:root {
+    --blue: rgb(55, 111, 214);
+    --white: rgb(214, 203, 203);
+  }
+
 body {
     margin: 0px;
-    background-color: rgb(216, 216, 76);
+    /* background-color: rgb(216, 216, 76); */
+    background-color: var(--blue);
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h6 {
     margin: 0;
 }
 
@@ -12,12 +18,15 @@ nav {
     flex-direction: column;
     align-items: flex-start;
     margin: 0;
-    background-color: rgb(11, 11, 104);
+    /* background-color: rgb(11, 11, 104); */
+    background-color: var(--white);
 }
 
 h1 {
-    color: rgb(11, 11, 104);
-    background-color: rgb(216, 216, 76);
+    /* color: rgb(11, 11, 104); */
+    color: var(--white);
+    /* background-color: rgb(216, 216, 76); */
+    background-color: var(--blue);
     margin-bottom: 50px ;
     margin-left: 60px ;
     padding: 5px;
@@ -34,7 +43,8 @@ ul {
 li {
     margin: 25px ;
     text-decoration: underline;
-    color: rgb(216, 216, 76);
+    /* color: rgb(216, 216, 76); */
+    color: var(--blue);
     font-size: larger;
 }
 
@@ -45,13 +55,20 @@ main {
     align-items: center;
 }
 
+.dashUser {
+    color: var(--white);
+    margin-top: 15px;
+}
+
 .post {
     width: 700px ;
     margin-top: 30px;
     margin-bottom: 30px;
     border: solid;
     border-width: 2px;
-    border-color:rgb(11, 11, 104)
+    /* border-color:rgb(11, 11, 104) */
+    border-color: var(--white);
+    color: var(--white);
     /* display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,27 +79,46 @@ main {
     padding-top: 8px ;
     padding-bottom: 8px;
     display: flex;
-    justify-content: center;
-    background-color:rgb(11, 11, 104);
-    color: rgb(216, 216, 76);
+    justify-content: space-between;
+    align-items: center;
+    /* background-color:rgb(11, 11, 104); */
+    background-color: var(--white);
+    /* color: rgb(216, 216, 76); */
+    color: var(--blue);
     width: 700px;
 }
 
-.postContent {
-    color:rgb(11, 11, 104);
-    margin: 8px;
+.postTitle h4, h6 {
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
+.postContent {
+    /* color:rgb(11, 11, 104); */
+    color: var(--white);
+    margin: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* .postContent h6 {
+    margin-top: 15px;
+} */
+
 a {
-    color:rgb(216, 216, 76)
+    /* color:rgb(216, 216, 76) */
+    color: var(--blue);
 }
 
 #loginSignup {
-    background-color:rgb(11, 11, 104);
+    /* background-color:rgb(11, 11, 104); */
+    background-color: var(--white);
     border-radius: 10px;
     height: 400px;
     width: 750px ;
-    color:rgb(11, 11, 104) ;
+    /* color:rgb(11, 11, 104) ; */
+    color: grey;
     display: flex ;
     justify-content: space-around;
     align-items: center;
@@ -91,7 +127,8 @@ a {
 
 .loginSignup {
     width: 250px;
-    background-color:rgb(216, 216, 76);
+    /* background-color:rgb(216, 216, 76); */
+    background-color: var(--blue);
     height: 275px;
     display: flex;
     flex-direction: column ;
@@ -101,7 +138,8 @@ a {
 
 .vertical-line1 {
     width: 1px;
-    background-color:rgb(216, 216, 76);
+    /* background-color:rgb(216, 216, 76); */
+    background-color: var(--blue);
     height: 275px;
 }
 
