@@ -1,15 +1,16 @@
-<h2>{{user.userName}}</h2>
+<h2 class="dashUser">{{user.userName}}</h2>
 
 {{#each user.posts as |post|}}
 
     <div value="{{post.id}}"class="post">
         <div class="postTitle">
             <h4>{{post.title}}</h4>
+            <h6>{{format_date post.date_created}}</h6>
         </div>
         <div class="postContent">
             <h5>{{post.content}}</h5>
         </div>
-        <h6>Posted On: <br> {{format_date post.date_created}}</h6>
+        {{!-- <h6>Posted On: <br> {{format_date post.date_created}}</h6> --}}
     </div>
 
     <div>
